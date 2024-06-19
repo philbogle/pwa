@@ -9,6 +9,7 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    position: relative;
 }
 
 nav {
@@ -21,6 +22,7 @@ nav {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 10px;
 }
 
 .menu-toggle .bar {
@@ -33,6 +35,8 @@ nav {
 .nav {
     display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav li {
@@ -61,11 +65,12 @@ nav {
     .nav {
         display: none;
         flex-direction: column;
-        width: 100%;
-    }
-
-    .nav.no-search {
-        display: flex;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        border: 1px solid #ccc;
     }
 
     .nav.active {
@@ -75,6 +80,6 @@ nav {
     .nav li {
         text-align: center;
         padding: 10px 0;
-        width: 100%;
+        border-bottom: 1px solid #444;
     }
 }
