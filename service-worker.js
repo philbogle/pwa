@@ -16,19 +16,7 @@ self.addEventListener('install', event => {
                 return cache.addAll(urlsToCache);
             })
     );
-});
-
-// Fetch event - serve cached files if offline
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
-    );
+    self.skipWaiting(); // Force the waiting service worker to become the active service worker
 });
 
 // Activate event - clean up old caches
@@ -45,5 +33,18 @@ self.addEventListener('activate', event => {
             );
         })
     );
+    self.clients.claim(); // Take control of all clients immediately
 });
 
+// Fetch event - serve cached files if offline
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
+            })
+    );
+});
