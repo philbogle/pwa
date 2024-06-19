@@ -24,4 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show schedule by default
     scheduleSection.classList.add('active');
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+    }
 });
