@@ -1,14 +1,17 @@
 const CACHE_NAME = 'reunion-pwa-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/app.js',
-    '/manifest.json'
+    '/pwa/index.html',
+    '/pwa/css/styles.css',
+    '/pwa/js/app.js',
+    '/pwa/image/schild-192.jpg',
+    '/pwa/image/schild-512.jpg',
+    '/pwa/image/Fontana-Cabin-Map-2024.jpg',
+    '/pwa/manifest.json'
     // Add paths to other assets like images or fonts here
 ];
 
 // Install event - cache files
+/*
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -18,6 +21,7 @@ self.addEventListener('install', event => {
     );
     self.skipWaiting(); // Force the waiting service worker to become the active service worker
 });
+*/
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {

@@ -8,12 +8,12 @@
     "description": "Ellis family reunion 2024 app",
     "icons": [
         {
-            "src": "images/schild-192.jpg",
+            "src": "/pwa/image/schild-192.jpg",
             "sizes": "192x192",
             "type": "image/jpeg"
         },
         {
-            "src": "images/schild-512.jpg",
+            "src": "/pwa/image/schild-512.jpg",
             "sizes": "512x512",
             "type": "image/jpeg"
         }

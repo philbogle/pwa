@@ -1,29 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    const scheduleLink = document.getElementById('schedule-link');
-    const cabinsLink = document.getElementById('cabins-link');
-    const scheduleSection = document.getElementById('schedule');
-    const cabinsSection = document.getElementById('cabins');
 
-    mobileMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    const mapLink = document.getElementById('map-link');
+    const mapPopup = document.getElementById('map-popup');
+    const closeMapBtn = document.getElementById('close-map');
 
-    scheduleLink.addEventListener('click', () => {
-        scheduleSection.classList.add('active');
+    mapLink.addEventListener('click', () => {
+        mapPopup.style.display = 'flex';
+        scheduleSection.classList.remove('active');
         cabinsSection.classList.remove('active');
         navMenu.classList.remove('active');
     });
 
-    cabinsLink.addEventListener('click', () => {
-        cabinsSection.classList.add('active');
-        scheduleSection.classList.remove('active');
-        navMenu.classList.remove('active');
+    closeMapBtn.addEventListener('click', () => {
+        mapPopup.style.display = 'none';
     });
 
-    // Show schedule by default
-    scheduleSection.classList.add('active');
+
+    /*
+
 
     // Register service worker
     if ('serviceWorker' in navigator) {
@@ -35,6 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('ServiceWorker registration failed: ', error);
             });
     }
+    */
 });
 
 
+// Function to force stop and reload the service worker
+function forceUpdateServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations()
+            .then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                });
+                window.location.reload();
+            });
+    }
+}
